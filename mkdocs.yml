@@ -79,3 +79,5 @@ nav:
   - Введение: intro/README.md
   - Установка:
     - Введение: installation/README.md
+    - Скачивание снимка: installation/download.md
+    - Распаковка снимка: installation/unpack.md
