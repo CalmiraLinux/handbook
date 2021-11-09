@@ -77,3 +77,5 @@ nav:
   - Handbook: index.md
   - Принятые обозначения: typo.md
   - Введение: intro/README.md
+  - Установка:
+    - Введение: installation/README.md
