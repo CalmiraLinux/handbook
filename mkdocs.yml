@@ -83,3 +83,4 @@ nav:
     - Распаковка снимка: installation/unpack.md
     - Установка системы на ПК: installation/install-pc.md
     - Установка системы в Qemu/KVM: installation/install-qemu.md
+    - Первичная настройка после установки: installation/setting-up.md

@@ -18,7 +18,7 @@
     
     
       
-        <title>Установка системы в Qemu/KVM - CalmiraLinux Handbook</title>
+        <title>Первичная настройка дистрибутива после копирования - CalmiraLinux Handbook</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#qemukvm" class="md-skip">
+        <a href="#_1" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Установка системы в Qemu/KVM
+              Первичная настройка дистрибутива после копирования
             
           </span>
         </div>
@@ -257,14 +257,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -350,74 +348,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Установка системы в Qemu/KVM
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../install-qemu/" class="md-nav__link">
         Установка системы в Qemu/KVM
       </a>
-      
-        
-
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    Монтирование
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    Разметка разделов
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    Форматирование разделов
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    Копирование системы
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -457,30 +392,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    Монтирование
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    Разметка разделов
+    Смена корня
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    Форматирование разделов
+  <a href="#file-systems-table" class="md-nav__link">
+    Настройка file systems table
+  </a>
+  
+    <nav class="md-nav" aria-label="Настройка file systems table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fstab" class="md-nav__link">
+    Настройка fstab
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    Копирование системы
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -497,55 +431,54 @@
               
                 
                 
-                <h1 id="qemukvm">Установка системы в Qemu/KVM<a class="headerlink" href="#qemukvm" title="Permanent link">⚓︎</a></h1>
-<p>Вы можете захотеть установить Calmira не на реальное железо, а в виртуальную машину Qemu/KVM. Создайте виртуальную машину со следующими параметрами:</p>
+                <h1 id="_1">Первичная настройка дистрибутива после копирования<a class="headerlink" href="#_1" title="Permanent link">⚓︎</a></h1>
+<h2 id="_2">Смена корня<a class="headerlink" href="#_2" title="Permanent link">⚓︎</a></h2>
+<p>Первым делом необходимо загрузиться в только что скопированную Calmira. Сейчас же нельзя это сделать, так как система не загрузится - нужно настроить <code>fstab</code> и загрузчик. Поэтому на хост-системе произведём операцию смены корня.</p>
+<div class="admonition note">
+<p class="admonition-title">Обратите внимание</p>
+<p>Для начала вы должны смонтировать раздел жёсткого диска или образ виртуального диска qcow2 в вашу систему. Точка монтирования: <code>/mnt/calm</code>. О монтировании сказано в предыдущих инструкциях.</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="k">for</span> DIR <span class="k">in</span> <span class="s2">&quot;dev&quot;</span> <span class="s2">&quot;dev/pts&quot;</span> <span class="s2">&quot;proc&quot;</span> <span class="s2">&quot;sys&quot;</span><span class="p">;</span> <span class="k">do</span>
+<span class="linenos" data-linenos=" 2 "></span>    sudo mount -v --bind /<span class="nv">$DIR</span> /mnt/calm/<span class="nv">$DIR</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="k">done</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="k">if</span> <span class="o">[</span> -h /mnt/calm/dev/shm <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="linenos" data-linenos=" 6 "></span>    mkdir -pv /mnt/calm/<span class="k">$(</span>readlink /mnt/calm/dev/shm<span class="k">)</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="k">fi</span>
+<span class="linenos" data-linenos=" 8 "></span>
+<span class="linenos" data-linenos=" 9 "></span>chroot <span class="s2">&quot;/mnt/calm&quot;</span> /usr/bin/env -i <span class="se">\</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="nv">HOME</span><span class="o">=</span>/root <span class="nv">TERM</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$TERM</span><span class="s2">&quot;</span>             <span class="se">\</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nv">PS1</span><span class="o">=</span><span class="s1">&#39;(chroot) \u:\w\$ &#39;</span>             <span class="se">\</span>
+<span class="linenos" data-linenos="12 "></span>    <span class="nv">PATH</span><span class="o">=</span>/bin:/sbin:/usr/bin:/usr/sbin  <span class="se">\</span>
+<span class="linenos" data-linenos="13 "></span>    /bin/bash --login
+</code></pre></div>
+<p>Вы окажетесь в скопированной Calmira GNU/Linux. Вы изолированы от хост-системы, и можете настраивать дистрибутив так, как вам удобно.</p>
+<h2 id="file-systems-table">Настройка file systems table<a class="headerlink" href="#file-systems-table" title="Permanent link">⚓︎</a></h2>
+<p><code>fstab</code> (file systems table) - один из конфигурационных файлов, содержащий информацию о различных файловых системах и устройствах хранения информации ПК. Он описывает, как диск будет использоваться или как будет интегрирован в систему. Файл <code>/etc/fstab</code> делает возможным автоматическое монтирование определенных файловых систем, что особенно нужно при загрузке системы. Он содержит ряд строк, описывающих файловые системы, их точки монтирования и другие параметры.</p>
+<p>Каждый пункт содержит:</p>
 <ol>
-<li>Тип ОС: Generic Linux/Generic Default;</li>
-<li>ЦП: qemu64/kvm64/копирующий конфигурацию ЦП хоста (в случае если на хосте процессор x86_64);</li>
-<li>ОЗУ: 64 Мб;</li>
-<li>Жёсткий диск: 1.5 Гб <code>qcow2</code>;</li>
-<li>Шина диска: SATA;</li>
+<li>Устройство монтируемой ФС;</li>
+<li>Точку монтирования;</li>
+<li>Тип ФС;</li>
+<li>Параметры монтирования;</li>
+<li>Флаг для <code>dump</code>, утилиты для создания резервных копий;</li>
+<li>Порядок проверки для <code>fsck</code> (File System ChecK).</li>
 </ol>
-<p>Всё это создавалось в virt-manager. Параметры рекомендуемые.</p>
-<h2 id="_1">Монтирование<a class="headerlink" href="#_1" title="Permanent link">⚓︎</a></h2>
-<p>Теперь нужно скопировать распакованный в <a href="unpack/">этой</a> инструкции дистрибутив в только что созданный образ жёсткого диска (образ сгенерировался во время создания виртуальной машины). Нужно смонтировать этот образ. Для этого подключите модуль <code>qemu-nbd</code> и смонтируйте образ ЖД:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># Подключение модуля ядра:</span>
-<span class="linenos" data-linenos="2 "></span>modprobe nbd <span class="nv">max_part</span><span class="o">=</span><span class="m">8</span>
-<span class="linenos" data-linenos="3 "></span>
-<span class="linenos" data-linenos="4 "></span><span class="c1"># Подключение образа:</span>
-<span class="linenos" data-linenos="5 "></span>qemu-nbd --connect<span class="o">=</span>/dev/nbd0 /var/lib/libvirt/images/<span class="nv">$NAME</span>.qcow2
-<span class="linenos" data-linenos="6 "></span>
-<span class="linenos" data-linenos="7 "></span>fdisk /dev/nbd0 -l
-<span class="linenos" data-linenos="8 "></span>mkdir /mnt/calm
+<p>Здесь всегда есть запись о корневой файловой системе. Раздел swap является специальным, поэтому его не видно в древовидной структуре, и в поле точки монтирования для таких разделов всегда содержится ключевое слово swap.</p>
+<p>Необходимо настроить fstab, чтобы система корректно загружалась. Настройка будет примерно одинаковой как для способа установки системы на раздел жёсткого диска, так и для способа установки системы в виртуальную машину Qemu.</p>
+<h3 id="fstab">Настройка fstab<a class="headerlink" href="#fstab" title="Permanent link">⚓︎</a></h3>
+<p>Создайте файл <code>/etc/fstab</code> со следующим содержимым:</p>
+<div class="highlight"><span class="filename">/etc/fstab</span><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span># Begin /etc/fstab
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span># file system  mount-point  type     options             dump  fsck order
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>/dev/sdX       /            ext4     defaults            1     1
+<span class="linenos" data-linenos=" 6 "></span>proc           /proc        proc     nosuid,noexec,nodev 0     0
+<span class="linenos" data-linenos=" 7 "></span>sysfs          /sys         sysfs    nosuid,noexec,nodev 0     0
+<span class="linenos" data-linenos=" 8 "></span>devpts         /dev/pts     devpts   gid=5,mode=620      0     0
+<span class="linenos" data-linenos=" 9 "></span>tmpfs          /run         tmpfs    defaults            0     0
+<span class="linenos" data-linenos="10 "></span>devtmpfs       /dev         devtmpfs mode=0755,nosuid    0     0
 </code></pre></div>
-<p>Замените <code>$NAME</code> на имя виртуальной машины (и, по совместительству, имя диска).</p>
-<h2 id="_2">Разметка разделов<a class="headerlink" href="#_2" title="Permanent link">⚓︎</a></h2>
-<p>Необходимо разметить новый "жёсткий диск". Для этого выполните:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>cfdisk /dev/nbd0
-</code></pre></div>
-<p><code>cfdisk</code> запросит у вас таблицу разделов. Выбирайте <code>mbr</code> (она же <code>dos</code>) либо <code>gpt</code>. Разницы никакой нет, кроме той, что в случае <code>gpt</code> нужно в начале диска создать раздел объёмом 1 Мб с типом <code>biosboot</code> для корректной установки загрузчика.</p>
-<p>Потом (и для gpt, и для mbr) создайте корневой раздел. Он должен занимать всё оставшееся место. Тип: Linux filesystem. При желании можете создать ещё и раздел со swap. Его объём должен равняться половине от объёма оперативной памяти (к примеру, в виртуальной машине установлено значение ОЗУ, равное 64 Мб. Для подкачки тогда нужно выбрать объём 32 Мб). Тип раздела с подкачкой: Linux swap.</p>
-<h2 id="_3">Форматирование разделов<a class="headerlink" href="#_3" title="Permanent link">⚓︎</a></h2>
-<p>После разметки отформатируйте нужные разделы. Для форматирования корневого раздела выполните:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>mkfs.ext4 /dev/nbd0pX
-</code></pre></div>
-<p>Замените <code>nbd0pX</code> на нужную метку раздела. Обычно это <code>nbd0p1</code>, если используется <code>mbr</code>, либо <code>nbd0p2</code>, если <code>gpt</code>.</p>
-<p>Если вы создали раздел подкачки:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>mkswap /dev/nbd0pX
-</code></pre></div>
-<p>Заменив <code>nbd0pX</code> на нужную метку раздела.</p>
-<h2 id="_4">Копирование системы<a class="headerlink" href="#_4" title="Permanent link">⚓︎</a></h2>
-<p>Смонтируйте корневой раздел:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>mount /dev/nbd0pX /mnt/calm
-</code></pre></div>
-<p>Замените <code>nbd0pX</code> на нужную метку раздела. Обычно это <code>nbd0p1</code>, если используется <code>mbr</code>, либо <code>nbd0p2</code>, если <code>gpt</code>.</p>
-<p>После того, как смонтировали раздел, скопируйте на него данные из распакованного образа дистрибутива. Во-первых убедитесь, что находитесь в директории <code>squashfs-root</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">pwd</span>
-</code></pre></div>
-<p>Если всё верно, переходите к копированию:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>sudo cp -rvxa * /mnt/calm/
-</code></pre></div>
-<p>Во время копирования на экран будут выведены скопированные файлы. Внимательно прочитайте вывод: в нём не должно содержаться <code>error</code>, <code>fail</code> и пр. Если вы не хотите видеть подробный результат о каждом скопированном файле, то уберите ключ <code>-v</code> из команды. В таком случае на экран будут выведены сообщения об ошибках и предупреждения (если они есть).</p>
                 
               
               
@@ -566,26 +499,6 @@
       
         
 <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="../install-pc/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Установка системы на ПК" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Назад
-              </span>
-              Установка системы на ПК
-            </div>
-          </div>
-        </a>
-      
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
