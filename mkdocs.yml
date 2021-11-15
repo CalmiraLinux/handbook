@@ -28,6 +28,7 @@ theme:
     - search.share
     - search.suggest
     - navigation.top
+    - toc.integrate
   #palette:
     #- scheme: default
       #primary: black
