@@ -1,0 +1,919 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Документация CalmiraLinux">
+      
+      
+      
+        <meta name="author" content="Michail Krasnov <linuxoid85@gmail.com>">
+      
+      
+      <link rel="icon" href="https://github.com/CalmiraLinux/CalmiraLinux/raw/lx4/v1.1/design/calmira_logo_normal.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+    
+    
+      
+        <title>Создание порта - CalmiraLinux Handbook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a57b2b03.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700%7CDroid+Sans+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Open Sans";--md-code-font-family:"Droid Sans Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CalmiraLinux Handbook" class="md-header__button md-logo" aria-label="CalmiraLinux Handbook" data-md-component="logo">
+      
+  <img src="https://github.com/CalmiraLinux/CalmiraLinux/raw/lx4/v1.1/design/calmira_logo_normal.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CalmiraLinux Handbook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Создание порта
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Переключиться в тёмный режим"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Переключиться в тёмный режим" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.821 9.821 0 0 0 17.64 0 9.821 9.821 0 0 0-17.64 0z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Переключиться в светлый режим"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Переключиться в светлый режим" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CalmiraLinux Handbook" class="md-nav__button md-logo" aria-label="CalmiraLinux Handbook" data-md-component="logo">
+      
+  <img src="https://github.com/CalmiraLinux/CalmiraLinux/raw/lx4/v1.1/design/calmira_logo_normal.png" alt="logo">
+
+    </a>
+    CalmiraLinux Handbook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Handbook
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../typo/" class="md-nav__link">
+        Принятые обозначения
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/" class="md-nav__link">
+        Введение
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../installation/">Установка</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Установка" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Установка
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/download/" class="md-nav__link">
+        Скачивание снимка
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/unpack/" class="md-nav__link">
+        Распаковка снимка
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/install-pc/" class="md-nav__link">
+        Установка системы на ПК
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/install-qemu/" class="md-nav__link">
+        Установка системы в Qemu/KVM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/setting-up/" class="md-nav__link">
+        Первичная настройка после установки
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/exit/" class="md-nav__link">
+        Завершение установки
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/login/" class="md-nav__link">
+        Вход в систему
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../setup/">Настройка дистрибутива</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Настройка дистрибутива" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Настройка дистрибутива
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/shell/" class="md-nav__link">
+        Настройка окружения
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/clock/" class="md-nav__link">
+        Настройка часов
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/console/" class="md-nav__link">
+        Настройка консоли
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/inittab/" class="md-nav__link">
+        Настройка inittab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/bootscripts/" class="md-nav__link">
+        Установка дополнительных загрузочных скриптов
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Управление пакетами</a>
+          
+            <label for="__nav_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Управление пакетами" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Управление пакетами
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro_ports/" class="md-nav__link">
+        Введение в порты
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Создание порта
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Создание порта
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Начальный этап
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Структура системы портов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Создание нужных файлов
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    Отправка изменений на GitHub
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ports-api" class="md-nav__link">
+    Ports API
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">Создание порта<a class="headerlink" href="#_1" title="Permanent link">⚓︎</a></h1>
+<p>От помощи в создании порта для сборки какого-либо пакета мы никогда не откажемся. Если есть какие-либо заинтересованные в помощи люди - вы нам нужны.</p>
+<h2 id="_2">Начальный этап<a class="headerlink" href="#_2" title="Permanent link">⚓︎</a></h2>
+<p>Создайте у себя на GitHub форк <a href="https://github.com/CalmiraLinux/Ports">этого</a> репозитория, после чего приступайте к работе. Советуем вам клонировать этот репозиторий себе на ПК для удобной работы:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>git clone https://github.com/USERNAME/Ports
+<span class="linenos" data-linenos="2 "></span><span class="nb">cd</span> Ports
+</code></pre></div>
+<p>Замените <code>USERNAME</code> на имя пользователя GitHub.</p>
+<p>После этих действий вы можете приступать к созданию порта. Хотим обратить ваше внимание на то, что строение порта должно повторять строение других портов.</p>
+<h2 id="_3">Структура системы портов<a class="headerlink" href="#_3" title="Permanent link">⚓︎</a></h2>
+<p>Просим вас соблюдать структуру системы портов:</p>
+<div class="highlight"><span class="filename">Древовидная структура системы портов</span><pre><span></span><code><span class="linenos" data-linenos="1 "></span>КАТЕГОРИЯ              &lt;название категории брать из Введения в порты&gt;
+<span class="linenos" data-linenos="2 "></span>├── makeport.sh        &lt;скрипт для автоматизации создания порта&gt;
+<span class="linenos" data-linenos="3 "></span>└── ИМЯ_ПАКЕТА         &lt;указывается как аргумент скрипту makeport.sh&gt;
+<span class="linenos" data-linenos="4 "></span>    ├── install        &lt;обязательно&gt;
+<span class="linenos" data-linenos="5 "></span>    ├── install_doc.sh &lt;опционально&gt;
+<span class="linenos" data-linenos="6 "></span>    ├── setup.html     &lt;опционально&gt;
+<span class="linenos" data-linenos="7 "></span>    ├── setup.sh       &lt;опционально&gt;
+<span class="linenos" data-linenos="8 "></span>    └── config.json    &lt;обязательно&gt;
+</code></pre></div>
+<p>Здесь приведена общая структура системы портов. КАТЕГОРИЯ и ИМЯ_ПАКЕТА - директории. КАТЕГОРИЯ - имя категории, в которую входит пакет с именем ИМЯ_ПАКЕТА.</p>
+<p>Файл <code>makeport.sh</code> нужен для автоматизации создания порта. Он создаёт директорию с именем порта, а так же файл install и откывает его в вашем текстовом редакторе, установленном по умолчанию. Наличие этого файла (<code>makeport.sh</code>) необязательно. Синтаксис:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>./makeport.sh $ИМЯ_ПАКЕТА
+</code></pre></div>
+<p>Файл <code>install</code> необходим. Он содержит инструкции по сборке ПО из исходного кода. Файл <code>install_doc.sh</code> опционален. Если у пакета есть дополнительная документация, которая не устанавливается по умолчанию, то в файле <code>install_doc.sh</code> содержатся инструкции по установке документации. Запускать его или нет - зависит от выбора пользователя. Он выбирает нужный ответ в диалоговом окне.</p>
+<p>Файл <code>config.json</code> содержит информацию о пакете. Она может быть добавлена в базу данных port-utils для удобного управления пакетом. Наличие этого файла ОБЯЗАТЕЛЬНО, так же как и файла <code>install</code>.</p>
+<p><code>setup.html</code> содержит дополнительные инструкции о дальнейшей настройке пакета после установки. Описаны команды и примеры файлов. Открывается в любом браузере. Файл <code>setup.sh</code> предназначен для автоматизированной настройки порта после установки. Как правило, настройка производится только для того пользователя, от имени которого был запущен этот скрипт.</p>
+<div class="admonition tip">
+<p class="admonition-title">Смотрите также</p>
+<p>Для установки какого-либо текстового редактора по умолчанию (в TTY) экспортируйте переменную <code>EDITOR</code>, значение которой - путь до исполняемого бинарного файла редактора.</p>
+</div>
+<h2 id="_4">Создание нужных файлов<a class="headerlink" href="#_4" title="Permanent link">⚓︎</a></h2>
+<p>Перейдите в одну из нужных директорий, выполните:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>./makeport.sh <span class="nv">$PACKAGE_NAME</span>
+</code></pre></div>
+<p>Замените <code>$PACKAGE_NAME</code> на имя порта. Скрипт <code>makeport.sh</code> создаёт нужную директорию и записывает в файл нужную информацию, которая должна содержаться в файле порта.</p>
+<p>Если вы не нашли этот скрипт, скопируйте его из любой другой директории.</p>
+<p>Будет создан файл <code>install</code> в директории, имеющей имя порта, который вы хотите создать. Этот файл будет открыт для редактирования в вашем текстовом редакторе, установленном по умолчанию. Замените строки:</p>
+<div class="highlight"><span class="filename">Фрагмент install</span><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># Port created by Linuxoid85</span>
+<span class="linenos" data-linenos="2 "></span><span class="c1">#</span>
+<span class="linenos" data-linenos="3 "></span><span class="c1"># (C) 2021 Michail [Linuxoid85] Krasnov </span>
+</code></pre></div>
+<p>На строки с вашим именем.</p>
+<p>Строки:
+<div class="highlight"><span class="filename">Фрагмент install</span><pre><span></span><code><span class="linenos" data-linenos="1 "></span>wget 
+<span class="linenos" data-linenos="2 "></span>tar -xf 
+<span class="linenos" data-linenos="3 "></span><span class="nb">cd</span> 
+</code></pre></div></p>
+<p>Предназначены для того, чтобы подставить в их конец нужную информацию. <code>wget</code> скачивает архив с исходным кодом, <code>tar -xf</code> распаковывает его, а <code>cd</code> переходит в распакованную директорию.</p>
+<p>Запишите в конец файла нужные инструкции для сборки. Доступны все команды bash.</p>
+<p>После того, как вы сорханите изменения и выйдите из окна текстового редактора, будет открыт файл <code>config.json</code> - в него запишите в него информацию о пакете. Примерное содержимое файла:</p>
+<div class="highlight"><span class="filename">config.json</span><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;имя порта *&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;версия порта *&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;описание порта *&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nt">&quot;maintainer&quot;</span><span class="p">:</span> <span class="s2">&quot;сопровождающий порт *&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nt">&quot;priority&quot;</span><span class="p">:</span> <span class="s2">&quot;приоритет порта *&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nt">&quot;release&quot;</span><span class="p">:</span> <span class="s2">&quot;релиз Calmira, для которого предназначен порт&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nt">&quot;deps&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="10 "></span>            <span class="s2">&quot;необходимые зависимости&quot;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="p">],</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nt">&quot;runtime&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="s2">&quot;необходимые зависимотси в рантайме&quot;</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="p">],</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="nt">&quot;optional&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="s2">&quot;опциональные зависимости&quot;</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="p">],</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="nt">&quot;recommend&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="19 "></span>            <span class="s2">&quot;рекомендуемые зависимости&quot;</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="p">],</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="nt">&quot;before&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="22 "></span>            <span class="s2">&quot;порт должен быть установлен перед этими зависимостями&quot;</span>
+<span class="linenos" data-linenos="23 "></span>        <span class="p">],</span>
+<span class="linenos" data-linenos="24 "></span>        <span class="nt">&quot;conflict&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="25 "></span>            <span class="s2">&quot;конфликтующие с этим портом зависимости&quot;</span>
+<span class="linenos" data-linenos="26 "></span>        <span class="p">]</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="p">},</span>
+<span class="linenos" data-linenos="28 "></span>    <span class="nt">&quot;bins&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="29 "></span>        <span class="s2">&quot;список установленных программ (бинарных файлов) в /bin, /sbin, /usr{,/local}/bin, /usr{,/local}/sbin&quot;</span>
+<span class="linenos" data-linenos="30 "></span>    <span class="p">],</span>
+<span class="linenos" data-linenos="31 "></span>    <span class="nt">&quot;libs&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="32 "></span>        <span class="s2">&quot;список установленных библиотек&quot;</span>
+<span class="linenos" data-linenos="33 "></span>    <span class="p">],</span>
+<span class="linenos" data-linenos="34 "></span>    <span class="nt">&quot;dirs&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="35 "></span>        <span class="s2">&quot;список установленных директорий&quot;</span>
+<span class="linenos" data-linenos="36 "></span>    <span class="p">]</span>
+<span class="linenos" data-linenos="37 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Все значения, указанные знаком <code>*</code> являются обязательными. Остальные вы используете по мере необходимости.</p>
+<p>Так же можете написать bash-скрипт <code>setup.sh</code> для автоматизированной настройки порта (как правило, для создания основных конфигов и директорий) после установки. Эта настройка производится для конкретного пользователя, от чьего имени был запущен скрипт.</p>
+<p>Если у пакета есть дополнительные настройки, которые трудно автоматизировать (нужно активное участие пользователя/администратора для выбора и изменения параметров, например), либо автоматизировать невозможно/не рекомендуется, то поместите рекомендации по настройке в файл <code>setup.html</code>. Формат такого файла должен быть примерно таким:</p>
+<div class="highlight"><span class="filename">setup.html</span><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!doctype html&gt;</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 4 "></span><span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Configuring $PACKAGE_NAME<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 6 "></span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 7 "></span><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/usr/share/update-ports/css/styles.css&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 8 "></span><span class="p">&lt;</span><span class="nt">body</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;margin: 0px 150px 0px 150px&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos=" 9 "></span>
+<span class="linenos" data-linenos="10 "></span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Configuring $PACKAGE_NAME<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="11 "></span>
+<span class="linenos" data-linenos="12 "></span><span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Заголовок второго уровня<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="13 "></span>
+<span class="linenos" data-linenos="14 "></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Абзац<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="15 "></span>
+<span class="linenos" data-linenos="16 "></span><span class="p">&lt;</span><span class="nt">table</span> <span class="na">border</span><span class="o">=</span><span class="s">&quot;1&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">cellpadding</span><span class="o">=</span><span class="s">&quot;5&quot;</span><span class="p">&gt;&lt;</span><span class="nt">colgroup</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="p">&lt;</span><span class="nt">col</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;background-color:#eeddcc&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="18 "></span><span class="p">&lt;/</span><span class="nt">colgroup</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="19 "></span><span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="20 "></span><span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="21 "></span>Команда, которую нужно ввести в терминал, либо же пример кода
+<span class="linenos" data-linenos="22 "></span><span class="p">&lt;/</span><span class="nt">pre</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="23 "></span>
+<span class="linenos" data-linenos="24 "></span><span class="p">&lt;</span><span class="nt">table</span> <span class="na">border</span><span class="o">=</span><span class="s">&quot;1&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">cellpadding</span><span class="o">=</span><span class="s">&quot;5&quot;</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="25 "></span><span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="26 "></span><span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="27 "></span>Пример текстового файла, либо вывода команды в терминал
+<span class="linenos" data-linenos="28 "></span><span class="p">&lt;/</span><span class="nt">pre</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+<span class="linenos" data-linenos="29 "></span>
+<span class="linenos" data-linenos="30 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<h2 id="github">Отправка изменений на GitHub<a class="headerlink" href="#github" title="Permanent link">⚓︎</a></h2>
+<p>Если вы клонировали репозиторий себе на ПК, выполните:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># Фиксирование изменений</span>
+<span class="linenos" data-linenos="2 "></span>git add .
+<span class="linenos" data-linenos="3 "></span>git commit -m <span class="s2">&quot;Добавление порта с пакетом </span><span class="nv">$PACKAGE_NAME</span><span class="s2">&quot;</span>
+<span class="linenos" data-linenos="4 "></span>
+<span class="linenos" data-linenos="5 "></span><span class="c1"># Отправка изменений себе на GitLab</span>
+<span class="linenos" data-linenos="6 "></span>git push
+</code></pre></div>
+<p>Замените <code>$PACKAGE_NAME</code> на имя порта с пакетом.</p>
+<p>Если вы делали всё в Web, то отметьте изменения с помощью графического интерфейса GitHub.</p>
+<p>Создайте запрос на слияние (pull-request). Создание порта завершено!</p>
+<h2 id="ports-api">Ports API<a class="headerlink" href="#ports-api" title="Permanent link">⚓︎</a></h2>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709-.153.086-.308.17-.463.252h-.002a.75.75 0 0 1-.686 0 16.709 16.709 0 0 1-.465-.252 31.147 31.147 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31.146 31.146 0 0 1 14 20.408z"/></svg></span> TODO <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M16.168 2.924 4.51 13.061a.25.25 0 0 0 .164.439h5.45a.75.75 0 0 1 .692 1.041l-2.559 6.066 11.215-9.668a.25.25 0 0 0-.164-.439H14a.75.75 0 0 1-.687-1.05l2.855-6.526zm-.452-1.595a1.341 1.341 0 0 1 2.109 1.55L15.147 9h4.161c1.623 0 2.372 2.016 1.143 3.075L8.102 22.721a1.149 1.149 0 0 1-1.81-1.317L8.996 15H4.674c-1.619 0-2.37-2.008-1.148-3.07l12.19-10.6z"/></svg></span> Future</p>
+<p>В будущем планируется создать единый Ports API, позволяющий разработчикам более быстро создавать свои порты. Этот API позволит им без проблем вызывать всевозможные диалоги, работать с БД системы портов и пр.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../intro_ports/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Введение в порты" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              Введение в порты
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "search.config.lang": "ru", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "\u041f\u043e\u0438\u0441\u043a", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e # \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>
+      
+    
+  </body>
+</html>

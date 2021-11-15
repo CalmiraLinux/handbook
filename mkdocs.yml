@@ -76,6 +76,9 @@ markdown_extensions:
   - pymdownx.highlight:
       linenums: true
       linenums_style: pymdownx-inline
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 plugins:
   - search:
@@ -104,3 +107,4 @@ nav:
   - Управление пакетами:
     - Введение в управление пакетами: packages/README.md
     - Введение в порты: packages/intro_ports.md
+    - Создание порта: packages/makeport.md
