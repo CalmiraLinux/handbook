@@ -18,7 +18,7 @@
     
     
       
-        <title>Скачивание снимка - CalmiraLinux Handbook</title>
+        <title>Настройка inittab - CalmiraLinux Handbook</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#inittab" class="md-skip">
           Перейти к содержанию
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Скачивание снимка
+              Настройка inittab
             
           </span>
         </div>
@@ -235,14 +235,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
@@ -270,7 +268,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Установка</a>
+          <a href="../../installation/">Установка</a>
           
             <label for="__nav_4">
               <span class="md-nav__icon md-icon"></span>
@@ -292,21 +290,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../installation/download/" class="md-nav__link">
         Скачивание снимка
       </a>
-      
     </li>
   
 
@@ -318,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../unpack/" class="md-nav__link">
+      <a href="../../installation/unpack/" class="md-nav__link">
         Распаковка снимка
       </a>
     </li>
@@ -332,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-pc/" class="md-nav__link">
+      <a href="../../installation/install-pc/" class="md-nav__link">
         Установка системы на ПК
       </a>
     </li>
@@ -346,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install-qemu/" class="md-nav__link">
+      <a href="../../installation/install-qemu/" class="md-nav__link">
         Установка системы в Qemu/KVM
       </a>
     </li>
@@ -360,7 +348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setting-up/" class="md-nav__link">
+      <a href="../../installation/setting-up/" class="md-nav__link">
         Первичная настройка после установки
       </a>
     </li>
@@ -374,7 +362,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../exit/" class="md-nav__link">
+      <a href="../../installation/exit/" class="md-nav__link">
         Завершение установки
       </a>
     </li>
@@ -388,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../login/" class="md-nav__link">
+      <a href="../../installation/login/" class="md-nav__link">
         Вход в систему
       </a>
     </li>
@@ -408,12 +396,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -437,7 +427,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../setup/">Настройка дистрибутива</a>
+          <a href="../">Настройка дистрибутива</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -461,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/shell/" class="md-nav__link">
+      <a href="../shell/" class="md-nav__link">
         Настройка окружения
       </a>
     </li>
@@ -475,7 +465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/clock/" class="md-nav__link">
+      <a href="../clock/" class="md-nav__link">
         Настройка часов
       </a>
     </li>
@@ -489,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/console/" class="md-nav__link">
+      <a href="../console/" class="md-nav__link">
         Настройка консоли
       </a>
     </li>
@@ -501,11 +491,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../setup/inittab/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Настройка inittab
       </a>
+      
     </li>
   
 
@@ -517,7 +517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../setup/bootscripts/" class="md-nav__link">
+      <a href="../bootscripts/" class="md-nav__link">
         Установка дополнительных загрузочных скриптов
       </a>
     </li>
@@ -563,13 +563,28 @@
               
                 
                 
-                <h1 id="_1">Скачивание снимка<a class="headerlink" href="#_1" title="Permanent link">⚓︎</a></h1>
-<p>Загрузка снимка системы производится из раздела <a href="https://github.com/CalmiraLinux/CalmiraLinux/releases">Releases</a> репозитория дистрибутива. Здесь выложены как снимки самой системы, так и архивы с временным инструментарием, предназначенным для восстановления или пересборки дистрибутива. Распознать одно от другого просто - у временного инструментария в заголовке написано "Calmira $VERSION Cross Toolchain". Это архивы с временным инструментарием (кросс-компилятором и другими инструментами, необходимыми для восстановления или пересборки системы). ЭТО НЕ ЗАГРУЗОЧНЫЕ СИСТЕМЫ!</p>
-<p>Всё остальное же - образы с системой. Вам следует скачать образ <code>sqsh</code>/<code>sfs</code>. Впоследствии, он будет распакован, а данные из него будут скопированы на определённый раздел жёсткого диска. Архивы zip и tar, подписанные как "Source code" являются копией данных из репозитория. Вам следует скачивать образ <code>sqsh</code>/<code>sfs</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Обратите внимание</p>
-<p>Нужные файлы находятся в разделе "Assests"</p>
+                <h1 id="inittab">Настройка inittab<a class="headerlink" href="#inittab" title="Permanent link">⚓︎</a></h1>
+<p>Система инициализации SystemVInit читает параметры из файла <code>/etc/inittab</code>. Так же там описан запуск программ <code>sulogin</code> (программа для логина пользователей), <code>agetty</code> (алтернатива <code>getty</code> - программа, управляющая доступам к TTY).</p>
+<p>По умолчанию этот файл уже создан. Для того, чтобы отредактировать его, выполните:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>vim /etc/inittab
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Опасность!</p>
+<p>Не рекомендуется редактировать этот файл без необходимости.</p>
 </div>
+<p>Редактирование этого файла может быть полезным, если требуется изменить число TTY, например. По умолчанию их 6:</p>
+<div class="highlight"><span class="filename">Фрагмент /etc/inittab</span><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="m">1</span>:2345:respawn:/sbin/agetty --noclear tty1 <span class="m">9600</span>
+<span class="linenos" data-linenos="2 "></span><span class="m">2</span>:2345:respawn:/sbin/agetty tty2 <span class="m">9600</span>
+<span class="linenos" data-linenos="3 "></span><span class="m">3</span>:2345:respawn:/sbin/agetty tty3 <span class="m">9600</span>
+<span class="linenos" data-linenos="4 "></span><span class="m">4</span>:2345:respawn:/sbin/agetty tty4 <span class="m">9600</span>
+<span class="linenos" data-linenos="5 "></span><span class="m">5</span>:2345:respawn:/sbin/agetty tty5 <span class="m">9600</span>
+<span class="linenos" data-linenos="6 "></span><span class="m">6</span>:2345:respawn:/sbin/agetty tty6 <span class="m">9600</span>
+</code></pre></div>
+<p>Для добавления новых TTY добавьте строку формата:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nv">$NUMBER</span>:2345:respawn:/sbin/agetty tty<span class="nv">$NUMBER</span> <span class="m">9600</span>
+</code></pre></div>
+<p>Замените <code>$NUMBER</code> на номер TTY.</p>
+<p>Переключаться между TTY можно сочетанием клавиш <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-function">Fn</kbd></span>, где <code>n</code> - номер функциональной клавиши, равный номеру TTY, или <span class="keys"><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-arrow-left">Left</kbd></span> / <span class="keys"><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-arrow-right">Right</kbd></span></p>
                 
               
               
@@ -594,7 +609,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Назад: Введение в установку" rel="prev">
+        <a href="../console/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Настройка консоли" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -603,20 +618,20 @@
               <span class="md-footer__direction">
                 Назад
               </span>
-              Введение в установку
+              Настройка консоли
             </div>
           </div>
         </a>
       
       
         
-        <a href="../unpack/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Распаковка снимка" rel="next">
+        <a href="../bootscripts/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Установка дополнительных загрузочных скриптов" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Вперед
               </span>
-              Распаковка снимка
+              Установка дополнительных загрузочных скриптов
             </div>
           </div>
           <div class="md-footer__button md-icon">

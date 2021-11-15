@@ -7,6 +7,17 @@ theme:
   logo: https://github.com/CalmiraLinux/CalmiraLinux/raw/lx4/v1.1/design/calmira_logo_normal.png
   favicon: https://github.com/CalmiraLinux/CalmiraLinux/raw/lx4/v1.1/design/calmira_logo_normal.png
   language: ru
+  palette:
+    scheme: dracula
+    primary: deep purple
+    accent: deep purple
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.instant
   include_sidebar: true
   features:
     - content.code.annotate
@@ -90,3 +101,6 @@ nav:
     - Введение в настройку дистрибутива: setup/README.md
     - Настройка окружения: setup/shell.md
     - Настройка часов: setup/clock.md
+    - Настройка консоли: setup/console.md
+    - Настройка inittab: setup/inittab.md
+    - Установка дополнительных загрузочных скриптов: setup/bootscripts.md

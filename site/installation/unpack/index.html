@@ -27,6 +27,10 @@
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
         
+          
+          
+          <meta name="theme-color" content="#7e56c2">
+        
       
     
     
@@ -54,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="dracula" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
   
     
     <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
@@ -345,6 +349,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Монтирование
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -454,6 +465,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         
@@ -505,6 +522,48 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/console/" class="md-nav__link">
+        Настройка консоли
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/inittab/" class="md-nav__link">
+        Настройка inittab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/bootscripts/" class="md-nav__link">
+        Установка дополнительных загрузочных скриптов
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -545,6 +604,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Монтирование
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -560,6 +626,16 @@
                 
                 <h1 id="_1">Распаковка снимка<a class="headerlink" href="#_1" title="Permanent link">⚓︎</a></h1>
 <p>После скачивания дистрибутива нужно его распаковать. Так как это не <code>raw</code>-образ, то процесс распаковки или монтирования будет несколько иным.</p>
+<p>Есть два способа извлечения данных из образа:</p>
+<ol>
+<li>Распаковка образа и дальнейшие действия с распакованными файлами;</li>
+<li>Монтирование образа и дальнейшие действия.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Обратите внимание</p>
+<p>Так как squashfs - файловая система только для чтения, то при монтировании у вас не получится ничего изменить в образе.</p>
+</div>
+<p>Выберите один из двух пунктов: "Распаковка" или "Монтирование".</p>
 <h2 id="_2">Распаковка<a class="headerlink" href="#_2" title="Permanent link">⚓︎</a></h2>
 <p>Так как это squashfs-образ, то распаковка будет производиться с помощью программы <code>unsquashfs</code> из состава <code>squashfs-tools</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>unsquashfs calmira-1.1.sfs
@@ -573,6 +649,14 @@
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">cd</span> squashfs-root
 </code></pre></div>
 <p>Для перехода в эту директорию.</p>
+<h2 id="_3">Монтирование<a class="headerlink" href="#_3" title="Permanent link">⚓︎</a></h2>
+<p>Если вы не хотите распаковывать образ, то можете его смонтировать. Первым делом создайте точку монтирования:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>mkdir squashfs-root
+</code></pre></div>
+<p>И смонтируйте образ:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1">#        ФС       Образ           Точка монтирования</span>
+<span class="linenos" data-linenos="2 "></span>mount -t squashfs calmira-1.1.sfs squashfs-root
+</code></pre></div>
                 
               
               
