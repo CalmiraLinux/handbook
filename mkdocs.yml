@@ -11,25 +11,25 @@ theme:
   features:
     - content.code.annotate
     - content.tabs.link
-    - navigation.expand
+    #- navigation.expand
     - navigation.indexes
     - search.highlight
     - search.share
     - search.suggest
     - navigation.top
-  palette:
-    - scheme: default
-      primary: black
-      accent: blue
-      toggle:
-        icon: material/eye-outline
-        name: Переключиться в тёмный режим
-    - scheme: slate
-      primary: black
-      accent: blue
-      toggle:
-        icon: material/eye
-        name: Переключиться в светлый режим
+  #palette:
+    #- scheme: default
+      #primary: black
+      #accent: blue
+      #toggle:
+        #icon: material/eye-outline
+        #name: Переключиться в тёмный режим
+    #- scheme: slate
+      #primary: black
+      #accent: blue
+      #toggle:
+        #icon: material/eye
+        #name: Переключиться в светлый режим
   font:
     text: 'Open Sans'
     code: 'Droid Sans Mono'
@@ -78,10 +78,14 @@ nav:
   - Принятые обозначения: typo.md
   - Введение: intro/README.md
   - Установка:
-    - Введение: installation/README.md
+    - Введение в установку: installation/README.md
     - Скачивание снимка: installation/download.md
     - Распаковка снимка: installation/unpack.md
     - Установка системы на ПК: installation/install-pc.md
     - Установка системы в Qemu/KVM: installation/install-qemu.md
     - Первичная настройка после установки: installation/setting-up.md
     - Завершение установки: installation/exit.md
+    - Вход в систему: installation/login.md
+  - Настройка дистрибутива:
+    - Введение в настройку дистрибутива: setup/README.md
+    - Настройка окружения: setup/shell.md

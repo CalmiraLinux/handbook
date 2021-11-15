@@ -18,7 +18,7 @@
     
     
       
-        <title>Распаковка снимка - CalmiraLinux Handbook</title>
+        <title>Вход в систему - CalmiraLinux Handbook</title>
       
     
     
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Распаковка снимка
+              Вход в систему
             
           </span>
         </div>
@@ -302,53 +302,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Распаковка снимка
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../unpack/" class="md-nav__link">
         Распаковка снимка
       </a>
-      
-        
-
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    Распаковка
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -414,11 +372,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../login/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Вход в систему
       </a>
+      
     </li>
   
 
@@ -516,21 +484,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    Распаковка
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -542,21 +495,18 @@
               
                 
                 
-                <h1 id="_1">Распаковка снимка<a class="headerlink" href="#_1" title="Permanent link">⚓︎</a></h1>
-<p>После скачивания дистрибутива нужно его распаковать. Так как это не <code>raw</code>-образ, то процесс распаковки или монтирования будет несколько иным.</p>
-<h2 id="_2">Распаковка<a class="headerlink" href="#_2" title="Permanent link">⚓︎</a></h2>
-<p>Так как это squashfs-образ, то распаковка будет производиться с помощью программы <code>unsquashfs</code> из состава <code>squashfs-tools</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>unsquashfs calmira-1.1.sfs
+                <h1 id="_1">Вход в систему<a class="headerlink" href="#_1" title="Permanent link">⚓︎</a></h1>
+<p>В предыдущей инструкции вы ввели команду <code>reboot</code> для перезагрузки. После того, как ваш ПК включится, вас будет приветствовать загрузочное меню GRUB:</p>
+<p><img alt="GRUB" src="../pic/grub.png" /></p>
+<p>Для загрузки Calmira выберите пункт <code>Calmira LX4 1.1 GNU/Linux</code>. Во время загрузки будут выведены сообщения ядра, а через какое-то время - сообщения загрузки сервисов SysVInit. Как только появится сообщение <code>Welcome to Calmira GNU/Linux!</code>, система будет загружена полностью. Она запросит у вас логин и пароль. Введите их, если во время настройки вы создавали пользователя, если нет, то зайдите из-под корневой учётной записи и продолжите дальнейшую настройку. Логин: <code>root</code>, пароль: <code>root</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>Welcome to Calmira GNU/Linux!
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span>calm-pc login: 
+<span class="linenos" data-linenos="4 "></span>Password: 
 </code></pre></div>
-<p>В CalmiraLinux пакет <code>squashfs-tools</code> находится в системе портов. Если вы устанавливаете этот пакет на другом дистрибутиве, то убедитесь в том, что он собирался с поддержкой формата сжатия <code>xz</code>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Внимание</p>
-<p>squashfs очень сильно сжимает данные. Сжатый образ весит 207 Мб, а данные, которые распакуются из него - 1 Гб. Учитывайте это.</p>
-</div>
-<p>Файлы распакуются в директорию <code>squashfs-root</code>. Введите:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">cd</span> squashfs-root
-</code></pre></div>
-<p>Для перехода в эту директорию.</p>
+<p>Если вы ввели логин, а пароль не вводите на протяжении 60 секунд, то у вас снова отобразится приветственное сообщение <code>Welcome to...</code> и запрос к вводу логина и пароля. Учитывайте, что вы не увидите никаких символов при вводе пароля. Это правило актуально так же для утилит <code>su</code> и <code>sudo</code>.</p>
+<p>После удачного входа в систему отобразится дата последнего входа в Calmira, число пропущенных mail сообщений (в случае отсутствия отобразится <code>No mail.</code>), а так же системное приглашение к вводу команды (PS1): <code>root:~#</code>. Вместо root будет имя пользователя, под которым вы вошли в систему, <code>:</code> разделяет имя пользователя и директорию в которой он находится, соответственно, вместо <code>~</code> будет отображаться та директория, в которой находится пользователь. Знак <code>~</code> означает, что вы находитесь в своей домашней директории. Если вы вошли от имени root, то помимо соответствующего имени в начале приглашения (до двоеточия), в конце приглашения (после рабочей директории) будет отображён знак <code>#</code>. Он означает, что вы имеете повышенные привилегии. Если вы вошли от имени обычного пользователя, то вместо этого знака будет <code>$</code>.</p>
+<p><img alt="SYSTEM" src="../pic/system.png" /></p>
                 
               
               
@@ -581,7 +531,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../download/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Скачивание снимка" rel="prev">
+        <a href="../exit/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Завершение установки" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -590,20 +540,20 @@
               <span class="md-footer__direction">
                 Назад
               </span>
-              Скачивание снимка
+              Завершение установки
             </div>
           </div>
         </a>
       
       
         
-        <a href="../install-pc/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Установка системы на ПК" rel="next">
+        <a href="../../setup/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Введение в настройку дистрибутива" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Вперед
               </span>
-              Установка системы на ПК
+              Введение в настройку дистрибутива
             </div>
           </div>
           <div class="md-footer__button md-icon">

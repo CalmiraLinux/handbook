@@ -18,7 +18,7 @@
     
     
       
-        <title>Первичная настройка дистрибутива после копирования - CalmiraLinux Handbook</title>
+        <title>Первичная настройка после установки - CalmiraLinux Handbook</title>
       
     
     
@@ -51,17 +51,13 @@
   
     
     
-      
     
     
     
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
     <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
-    
-      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -100,34 +96,12 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Первичная настройка дистрибутива после копирования
+              Первичная настройка после установки
             
           </span>
         </div>
       </div>
     </div>
-    
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Переключиться в тёмный режим"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Переключиться в тёмный режим" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3m0-4.5c5 0 9.27 3.11 11 7.5-1.73 4.39-6 7.5-11 7.5S2.73 16.39 1 12c1.73-4.39 6-7.5 11-7.5M3.18 12a9.821 9.821 0 0 0 17.64 0 9.821 9.821 0 0 0-17.64 0z"/></svg>
-            </label>
-          
-        
-          
-          
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue"  aria-label="Переключиться в светлый режим"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Переключиться в светлый режим" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z"/></svg>
-            </label>
-          
-        
-      </form>
     
     
     
@@ -257,18 +231,26 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
         
           
             
+          
+        
+          
+        
+          
+        
           
         
           
@@ -358,6 +340,230 @@
 
             
           
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Первичная настройка после установки
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Первичная настройка после установки
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Смена корня
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-systems-table" class="md-nav__link">
+    Настройка file systems table
+  </a>
+  
+    <nav class="md-nav" aria-label="Настройка file systems table">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fstab" class="md-nav__link">
+    Настройка fstab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    "Монтировать в ОЗУ или не монтировать?" - вот в чём вопрос
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Дополнительно о метке корневого раздела с системой
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grub" class="md-nav__link">
+    Установка загрузчика GRUB
+  </a>
+  
+    <nav class="md-nav" aria-label="Установка загрузчика GRUB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mbr" class="md-nav__link">
+    Установка загрузчика в MBR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legacy-bios" class="md-nav__link">
+    Установка загрузчика Legacy BIOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efi" class="md-nav__link">
+    Установка загрузчика EFI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grub-mbr-legacy-bios" class="md-nav__link">
+    Создание конфига GRUB (актуально для установки загрузчика на MBR или Legacy BIOS)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exit/" class="md-nav__link">
+        Завершение установки
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../login/" class="md-nav__link">
+        Вход в систему
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../setup/">Настройка дистрибутива</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Настройка дистрибутива" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Настройка дистрибутива
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/shell/" class="md-nav__link">
+        Настройка окружения
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -413,8 +619,63 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    "Монтировать в ОЗУ или не монтировать?" - вот в чём вопрос
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Дополнительно о метке корневого раздела с системой
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grub" class="md-nav__link">
+    Установка загрузчика GRUB
+  </a>
+  
+    <nav class="md-nav" aria-label="Установка загрузчика GRUB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mbr" class="md-nav__link">
+    Установка загрузчика в MBR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#legacy-bios" class="md-nav__link">
+    Установка загрузчика Legacy BIOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efi" class="md-nav__link">
+    Установка загрузчика EFI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grub-mbr-legacy-bios" class="md-nav__link">
+    Создание конфига GRUB (актуально для установки загрузчика на MBR или Legacy BIOS)
+  </a>
   
 </li>
       
@@ -468,17 +729,120 @@
 <p>Необходимо настроить fstab, чтобы система корректно загружалась. Настройка будет примерно одинаковой как для способа установки системы на раздел жёсткого диска, так и для способа установки системы в виртуальную машину Qemu.</p>
 <h3 id="fstab">Настройка fstab<a class="headerlink" href="#fstab" title="Permanent link">⚓︎</a></h3>
 <p>Создайте файл <code>/etc/fstab</code> со следующим содержимым:</p>
-<div class="highlight"><span class="filename">/etc/fstab</span><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span># Begin /etc/fstab
+<div class="highlight"><span class="filename">/etc/fstab</span><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># Begin /etc/fstab</span>
 <span class="linenos" data-linenos=" 2 "></span>
-<span class="linenos" data-linenos=" 3 "></span># file system  mount-point  type     options             dump  fsck order
+<span class="linenos" data-linenos=" 3 "></span><span class="c1"># file system  mount-point  type     options             dump  fsck order</span>
 <span class="linenos" data-linenos=" 4 "></span>
-<span class="linenos" data-linenos=" 5 "></span>/dev/sdX       /            ext4     defaults            1     1
-<span class="linenos" data-linenos=" 6 "></span>proc           /proc        proc     nosuid,noexec,nodev 0     0
-<span class="linenos" data-linenos=" 7 "></span>sysfs          /sys         sysfs    nosuid,noexec,nodev 0     0
-<span class="linenos" data-linenos=" 8 "></span>devpts         /dev/pts     devpts   gid=5,mode=620      0     0
-<span class="linenos" data-linenos=" 9 "></span>tmpfs          /run         tmpfs    defaults            0     0
-<span class="linenos" data-linenos="10 "></span>devtmpfs       /dev         devtmpfs mode=0755,nosuid    0     0
+<span class="linenos" data-linenos=" 5 "></span>/dev/sdX       /            ext4     defaults            <span class="m">1</span>     <span class="m">1</span>
+<span class="linenos" data-linenos=" 6 "></span>proc           /proc        proc     nosuid,noexec,nodev <span class="m">0</span>     <span class="m">0</span>
+<span class="linenos" data-linenos=" 7 "></span>sysfs          /sys         sysfs    nosuid,noexec,nodev <span class="m">0</span>     <span class="m">0</span>
+<span class="linenos" data-linenos=" 8 "></span>devpts         /dev/pts     devpts   <span class="nv">gid</span><span class="o">=</span><span class="m">5</span>,mode<span class="o">=</span><span class="m">620</span>      <span class="m">0</span>     <span class="m">0</span>
+<span class="linenos" data-linenos=" 9 "></span>tmpfs          /run         tmpfs    defaults            <span class="m">0</span>     <span class="m">0</span>
+<span class="linenos" data-linenos="10 "></span>devtmpfs       /dev         devtmpfs <span class="nv">mode</span><span class="o">=</span><span class="m">0755</span>,nosuid    <span class="m">0</span>     <span class="m">0</span>
 </code></pre></div>
+<p>Замените <code>/dev/sdX</code> из первой строки <code>fstab</code> на метку корневого раздела, на который устанавливалась система. Например, <code>/dev/sda3</code>. Если вы устанавливаете систему в виртуальную машину, то метка корневого раздела будет называться примерно так: <code>/dev/nbd0pX</code>, где X - номер нужного раздела.</p>
+<p>Если у вас UEFI, то добавьте соотв. запись в fstab:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">echo</span> <span class="s2">&quot;/dev/sdN     /boot/efi      vfat    umask=0077           0     0&quot;</span> &gt;&gt; /etc/fstab
+</code></pre></div>
+<p>Замените <code>/dev/sdN</code> из команды выше на нужную метку раздела EFI. Повторимся, что его объём жолжен быть равен 256 Мб, файловая система - Fat32 (vfat).</p>
+<p>Если вы используете swap-раздел, то выполните:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">echo</span> <span class="s2">&quot;/dev/sdM     swap         swap     pri=1               0     0&quot;</span> &gt;&gt; /etc/fstab
+</code></pre></div>
+<p>Замените <code>sdM</code> на нужную метку раздела с подкачкой (swap).</p>
+<h3 id="-">"Монтировать в ОЗУ или не монтировать?" - вот в чём вопрос<a class="headerlink" href="#-" title="Permanent link">⚓︎</a></h3>
+<p>Как вы могли заметить в <code>/etc/fstab</code>, некоторые директории монтируются в оперативную память (посредством <code>tmpfs</code>). У такого способа главное достоинство в том, что при монтировании этих каталогов в <code>tmpfs</code>, система будет работать несколько быстрее. На современном оборудовании это не так заметно, но на старом и слабом может сделать систему немного быстрее.</p>
+<p>Недостаток в том, что на несколько Мб система будет потреблять больше. Так, например, если система потребляла 28 Мб, то с монтированием в tmpfs будет потреблять 30 Мб. Потребление зависит от содержимого тех директорий.</p>
+<p>Владельцам оборудования с небольшим объёмом ОЗУ (меньше 64 мегабайт) просьба учитывать этот факт и трезво оценить достоинства и недостатки выноса некоторых директорий в ОЗУ.</p>
+<h3 id="_3">Дополнительно о метке корневого раздела с системой<a class="headerlink" href="#_3" title="Permanent link">⚓︎</a></h3>
+<p>Мы настоятельно советуем использовать вместо метки корневого раздела, на который установлена Calmira GNU/Linux (например, <code>/dev/sda1</code>, <code>/dev/hdc2</code>, etc.), его UUID. Если метка диска, прописанного в <code>/etc/fstab</code> изменится, то могут возникнуть проблемы с загрузкой ОС, либо же она не загрузится вообще.</p>
+<p>Узнать UUID для нужного раздела можно, выполнив:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>blkid /dev/sdX
+</code></pre></div>
+<p>Вывод будет примерно таким:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>/dev/sda3: UUID=&quot;1ed63fa7-e4c9-43cc-96f4-9f951224a338&quot; BLOCK_SIZE=&quot;4096&quot; TYPE=&quot;ext4&quot; PARTLABEL=&quot;Calmira data&quot; PARTUUID=&quot;56ae06ac-dbd8-11eb-96fc-e8039ae29c93&quot;
+</code></pre></div>
+<p>Вам понадобится что-то вроде этого:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>UUID=&quot;1ed63fa7-e4c9-43cc-96f4-9f951224a338&quot;
+</code></pre></div>
+<p>Запишите эту строку вместо <code>/dev/sdX</code> в fstab (но без кавычек). Напимер, fstab с UUID корневого раздела вместо его метки будет выглядеть так:</p>
+<div class="highlight"><span class="filename">/etc/fstab</span><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># Begin /etc/fstab</span>
+<span class="linenos" data-linenos=" 2 "></span>
+<span class="linenos" data-linenos=" 3 "></span><span class="c1"># file system  mount-point  type     options             dump  fsck order</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span><span class="nv">UUID</span><span class="o">=</span>1ed63fa7-e4c9-43cc-96f4-9f951224a338      /            ext4     defaults            <span class="m">1</span>     <span class="m">1</span>
+<span class="linenos" data-linenos=" 6 "></span>proc                                           /proc        proc     nosuid,noexec,nodev <span class="m">0</span>     <span class="m">0</span>
+<span class="linenos" data-linenos=" 7 "></span>sysfs                                          /sys         sysfs    nosuid,noexec,nodev <span class="m">0</span>     <span class="m">0</span>
+<span class="linenos" data-linenos=" 8 "></span>devpts                                         /dev/pts     devpts   <span class="nv">gid</span><span class="o">=</span><span class="m">5</span>,mode<span class="o">=</span><span class="m">620</span>      <span class="m">0</span>     <span class="m">0</span>
+<span class="linenos" data-linenos=" 9 "></span>tmpfs                                          /run         tmpfs    defaults            <span class="m">0</span>     <span class="m">0</span>
+<span class="linenos" data-linenos="10 "></span>devtmpfs                                       /dev         devtmpfs <span class="nv">mode</span><span class="o">=</span><span class="m">0755</span>,nosuid    <span class="m">0</span>     <span class="m">0</span>
+</code></pre></div>
+<p>Замените <code>UUID=1ed63fa7-e4c9-43cc-96f4-9f951224a338</code> на полученное значение.</p>
+<p>Этот способ является более надёжным, чем использование обычных меток дисков/разделов, которые могут в определённых ситуациях меняться.</p>
+<h2 id="grub">Установка загрузчика GRUB<a class="headerlink" href="#grub" title="Permanent link">⚓︎</a></h2>
+<p>В Calmira используется классический загрузчик GRUB2. Без него система не сможет загрузиться. Процесс установки для MBR BIOS, Legacy BIOS/GPT BIOS, UEFI различаются. Здесь будут описаны все эти три случая.</p>
+<h3 id="mbr">Установка загрузчика в MBR<a class="headerlink" href="#mbr" title="Permanent link">⚓︎</a></h3>
+<p>Для того, чтобы установить загрузчик, выполните:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>grub-install /dev/sdX
+</code></pre></div>
+<p>Замените <code>sdX</code> на нужный диск. Например, <code>sda</code> или <code>nbd0</code>.</p>
+<h3 id="legacy-bios">Установка загрузчика Legacy BIOS<a class="headerlink" href="#legacy-bios" title="Permanent link">⚓︎</a></h3>
+<p>Если вы по каким-то причинам используете Legacy BIOS, либо же обычный BIOS, но у жёсткого диска таблица разделов GPT, то для установки загрузчика вам необходимо иметь раздел объёмом 1 Мб без файловой системы в начале диска. Если у вас на ПК уже установлена какая-либо ОС, то этот раздел должен присутствовать.</p>
+<p>Установите загрузчик командой:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>grub-install /dev/sdX
+</code></pre></div>
+<p>Замените <code>sdX</code> на нужный диск. Например, <code>sda</code> или <code>nbd0</code>.</p>
+<h3 id="efi">Установка загрузчика EFI<a class="headerlink" href="#efi" title="Permanent link">⚓︎</a></h3>
+<p>На данный момент все современные ПК имеют UEFI, а не BIOS. Для установки системы на UEFI, вы должны иметь доп. раздел объёмом 256 Мб с файловой системой <code>fat32</code> и названием <code>ESP</code>. Если у вас на ПК уже установлена какая-либо ОС, то этот раздел уже имеется. Смонтируйте его в <code>/boot/efi</code> командой <code>mount</code>. После чего необходимо установить несколько пакетов из системы портов для правильной работы загрузчика.</p>
+<p>Установите из все порты из <code>base/grub-efi</code> в следующем порядке:</p>
+<ol>
+<li><code>efivar</code>;</li>
+<li><code>popt</code> (находится не в <code>base/grub-efi</code>, а в <code>general_libs</code>);</li>
+<li><code>efibootmgr</code>;</li>
+<li><code>grub</code>.</li>
+</ol>
+<p>Для установки перейдите в директорию с портом:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">cd</span> /usr/ports/$КАТЕГОРИЯ/$ПОРТ
+</code></pre></div>
+<p>И выполните скрипт <code>install</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>./install
+</code></pre></div>
+<ul>
+<li><code>$КАТЕГОРИЯ</code> - категория, в котором располагается порт. Например, <code>base/grub-efi</code> или <code>general_libs</code>.</li>
+<li><code>$ПОРТ</code> - имя нужного порта. Например, <code>efibootmgr</code>.</li>
+</ul>
+<p>После чего можно устанавливать загрузчик:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>grub-install /dev/sdX
+</code></pre></div>
+<p>Замените <code>sdX</code> на нужный диск. Например, <code>sda</code> или <code>nbd0</code>.</p>
+<h2 id="grub-mbr-legacy-bios">Создание конфига GRUB (актуально для установки загрузчика на MBR или Legacy BIOS)<a class="headerlink" href="#grub-mbr-legacy-bios" title="Permanent link">⚓︎</a></h2>
+<p>Конфиг <code>/boot/grub/grub.cfg</code> должен иметь следующий вид:</p>
+<div class="highlight"><span class="filename">/boot/grub/grub.cfg</span><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="c1"># Begin /boot/grub/grub.cfg</span>
+<span class="linenos" data-linenos=" 2 "></span><span class="nb">set</span> <span class="nv">default</span><span class="o">=</span><span class="m">0</span>
+<span class="linenos" data-linenos=" 3 "></span><span class="nb">set</span> <span class="nv">timeout</span><span class="o">=</span><span class="m">3</span>
+<span class="linenos" data-linenos=" 4 "></span>
+<span class="linenos" data-linenos=" 5 "></span>insmod ext2
+<span class="linenos" data-linenos=" 6 "></span><span class="nb">set</span> <span class="nv">root</span><span class="o">=(</span>hd0,2<span class="o">)</span>
+<span class="linenos" data-linenos=" 7 "></span>
+<span class="linenos" data-linenos=" 8 "></span>menuentry <span class="s2">&quot;Calmira LX4 1.1 GNU/Linux, Linux&quot;</span> <span class="o">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        linux /boot/vmlinuz <span class="nv">root</span><span class="o">=</span>/dev/sda2 ro quiet
+<span class="linenos" data-linenos="10 "></span><span class="o">}</span>
+</code></pre></div>
+<p>Где:</p>
+<ul>
+<li><code>set default=0</code> - устанавливает стандартный выбранный пункт меню (порядковый номер от нуля до Х, либо <code>saved</code> для выбора предыдущего выбранного пункта).</li>
+<li><code>set timeout=3</code> - устанавливает время ожидания до автоматического выбора определённого пункта меню, равное 3 секундам.</li>
+<li><code>insmod ext2</code> - установка ФС.</li>
+<li><code>set root=(hd0,2)</code> - установка корневого раздела.</li>
+<li><code>linux /boot/vmlinuz</code> - загружаемое ядро, которое в Calmira всегда находится в <code>/boot/vmlinuz</code>.<ul>
+<li><code>root=/dev/sda2</code> - установка корневого раздела для загрузки.</li>
+<li><code>quiet</code> - т.н. "тихий" режим, в котором не выводятся сообщения ядра о загрузке модулей и железа. В CalmiraLinux по умолчанию выводятся только предупреждения и ошибки.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Внимание</p>
+<p>Замените значение параметра <code>root</code> на то, что нужно в вашем случае. Укажите корневой раздел, куда копировалась система.</p>
+</div>
                 
               
               
@@ -499,6 +863,41 @@
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../install-qemu/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Установка системы в Qemu/KVM" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Назад
+              </span>
+              Установка системы в Qemu/KVM
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../exit/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Завершение установки" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Вперед
+              </span>
+              Завершение установки
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -521,7 +920,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "navigation.expand", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "navigation.top"], "translations": {"clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "search.config.lang": "ru", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "\u041f\u043e\u0438\u0441\u043a", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e # \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.tabs.link", "navigation.indexes", "search.highlight", "search.share", "search.suggest", "navigation.top"], "translations": {"clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "search.config.lang": "ru", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "\u041f\u043e\u0438\u0441\u043a", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e # \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.b1047164.min.js"></script>

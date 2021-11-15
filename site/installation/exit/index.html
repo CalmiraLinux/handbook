@@ -18,7 +18,7 @@
     
     
       
-        <title>Распаковка снимка - CalmiraLinux Handbook</title>
+        <title>Завершение установки - CalmiraLinux Handbook</title>
       
     
     
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Распаковка снимка
+              Завершение установки
             
           </span>
         </div>
@@ -302,53 +302,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Распаковка снимка
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../unpack/" class="md-nav__link">
         Распаковка снимка
       </a>
-      
-        
-
-
-<nav class="md-nav md-nav--secondary" aria-label="Содержание">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Содержание
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    Распаковка
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -400,11 +358,67 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../exit/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Завершение установки
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Завершение установки
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chroot" class="md-nav__link">
+    Выход из chroot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Размонтирование
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Перезагрузка
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -523,8 +537,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#chroot" class="md-nav__link">
+    Выход из chroot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    Распаковка
+    Размонтирование
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Перезагрузка
   </a>
   
 </li>
@@ -542,21 +570,30 @@
               
                 
                 
-                <h1 id="_1">Распаковка снимка<a class="headerlink" href="#_1" title="Permanent link">⚓︎</a></h1>
-<p>После скачивания дистрибутива нужно его распаковать. Так как это не <code>raw</code>-образ, то процесс распаковки или монтирования будет несколько иным.</p>
-<h2 id="_2">Распаковка<a class="headerlink" href="#_2" title="Permanent link">⚓︎</a></h2>
-<p>Так как это squashfs-образ, то распаковка будет производиться с помощью программы <code>unsquashfs</code> из состава <code>squashfs-tools</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>unsquashfs calmira-1.1.sfs
+                <h1 id="_1">Завершение установки<a class="headerlink" href="#_1" title="Permanent link">⚓︎</a></h1>
+<p>Установка и загрузка системы завершена. Теперь вы можете выйти из <code>chroot</code> и перезагрузить компьютер.</p>
+<h2 id="chroot">Выход из chroot<a class="headerlink" href="#chroot" title="Permanent link">⚓︎</a></h2>
+<p>Для того, чтобы выйти из chroot, введите:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">logout</span>
+<span class="linenos" data-linenos="2 "></span>
+<span class="linenos" data-linenos="3 "></span>umount /mnt/calm/dev<span class="o">{</span>/pts,<span class="o">}</span>
+<span class="linenos" data-linenos="4 "></span>umount /mnt/calm/<span class="o">{</span>sys,proc,run<span class="o">}</span>
 </code></pre></div>
-<p>В CalmiraLinux пакет <code>squashfs-tools</code> находится в системе портов. Если вы устанавливаете этот пакет на другом дистрибутиве, то убедитесь в том, что он собирался с поддержкой формата сжатия <code>xz</code>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Внимание</p>
-<p>squashfs очень сильно сжимает данные. Сжатый образ весит 207 Мб, а данные, которые распакуются из него - 1 Гб. Учитывайте это.</p>
-</div>
-<p>Файлы распакуются в директорию <code>squashfs-root</code>. Введите:</p>
-<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="nb">cd</span> squashfs-root
+<h2 id="_2">Размонтирование<a class="headerlink" href="#_2" title="Permanent link">⚓︎</a></h2>
+<p>Теперь можно отмонтировать раздел/образ ЖД:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># Если установка производилась в раздел жёсткого диска:</span>
+<span class="linenos" data-linenos="2 "></span>umount /dev/sdX
+<span class="linenos" data-linenos="3 "></span>
+<span class="linenos" data-linenos="4 "></span><span class="c1"># Если установка производилась в Qemu:</span>
+<span class="linenos" data-linenos="5 "></span>umount /mnt/calm <span class="c1"># Размонтирование образа виртуального жёсткого диска</span>
+<span class="linenos" data-linenos="6 "></span>qemu-nbd --disconnect /dev/nbd0 <span class="c1"># Отключение образа ВЖД</span>
+<span class="linenos" data-linenos="7 "></span>rmmod nbd <span class="c1"># Отключение модуля nbd</span>
 </code></pre></div>
-<p>Для перехода в эту директорию.</p>
+<h2 id="_3">Перезагрузка<a class="headerlink" href="#_3" title="Permanent link">⚓︎</a></h2>
+<p>Введите:</p>
+<div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span>reboot
+</code></pre></div>
+<p>Для перезагрузки.</p>
                 
               
               
@@ -581,7 +618,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../download/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Скачивание снимка" rel="prev">
+        <a href="../setting-up/" class="md-footer__link md-footer__link--prev" aria-label="Назад: Первичная настройка после установки" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -590,20 +627,20 @@
               <span class="md-footer__direction">
                 Назад
               </span>
-              Скачивание снимка
+              Первичная настройка после установки
             </div>
           </div>
         </a>
       
       
         
-        <a href="../install-pc/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Установка системы на ПК" rel="next">
+        <a href="../login/" class="md-footer__link md-footer__link--next" aria-label="Вперед: Вход в систему" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Вперед
               </span>
-              Установка системы на ПК
+              Вход в систему
             </div>
           </div>
           <div class="md-footer__button md-icon">
