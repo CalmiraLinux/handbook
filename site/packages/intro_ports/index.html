@@ -646,6 +646,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Конфигурация порта
+  </a>
+  
+    <nav class="md-nav" aria-label="Конфигурация порта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deps" class="md-nav__link">
+    Зависимости поля deps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -751,6 +771,171 @@
 <span class="linenos" data-linenos="2 "></span>./install_doc.sh
 </code></pre></div>
 <p>Этими командами вы установите документацию пакета.</p>
+<h2 id="_4">Конфигурация порта<a class="headerlink" href="#_4" title="Permanent link">⚓︎</a></h2>
+<p>Все сведенья и параметры порта находятся в файле <code>config.json</code>. Его примерное содержимое здесь:</p>
+<div class="highlight"><span class="filename">config.json</span><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;имя порта *&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 3 "></span>    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;версия порта *&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;описание порта *&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nt">&quot;maintainer&quot;</span><span class="p">:</span> <span class="s2">&quot;сопровождающий порт *&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 6 "></span>    <span class="nt">&quot;priority&quot;</span><span class="p">:</span> <span class="s2">&quot;приоритет порта *&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="nt">&quot;release&quot;</span><span class="p">:</span> <span class="s2">&quot;релиз Calmira, для которого предназначен порт&quot;</span><span class="p">,</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nt">&quot;deps&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="10 "></span>            <span class="s2">&quot;необходимые зависимости&quot;</span>
+<span class="linenos" data-linenos="11 "></span>        <span class="p">],</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="nt">&quot;runtime&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="13 "></span>            <span class="s2">&quot;необходимые зависимотси в рантайме&quot;</span>
+<span class="linenos" data-linenos="14 "></span>        <span class="p">],</span>
+<span class="linenos" data-linenos="15 "></span>        <span class="nt">&quot;optional&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="16 "></span>            <span class="s2">&quot;опциональные зависимости&quot;</span>
+<span class="linenos" data-linenos="17 "></span>        <span class="p">],</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="nt">&quot;recommend&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="19 "></span>            <span class="s2">&quot;рекомендуемые зависимости&quot;</span>
+<span class="linenos" data-linenos="20 "></span>        <span class="p">],</span>
+<span class="linenos" data-linenos="21 "></span>        <span class="nt">&quot;before&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="22 "></span>            <span class="s2">&quot;порт должен быть установлен перед этими зависимостями&quot;</span>
+<span class="linenos" data-linenos="23 "></span>        <span class="p">],</span>
+<span class="linenos" data-linenos="24 "></span>        <span class="nt">&quot;conflict&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="25 "></span>            <span class="s2">&quot;конфликтующие с этим портом зависимости&quot;</span>
+<span class="linenos" data-linenos="26 "></span>        <span class="p">]</span>
+<span class="linenos" data-linenos="27 "></span>    <span class="p">},</span>
+<span class="linenos" data-linenos="28 "></span>    <span class="nt">&quot;bins&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="29 "></span>        <span class="s2">&quot;список установленных программ (бинарных файлов) в /bin, /sbin, /usr{,/local}/bin, /usr{,/local}/sbin&quot;</span>
+<span class="linenos" data-linenos="30 "></span>    <span class="p">],</span>
+<span class="linenos" data-linenos="31 "></span>    <span class="nt">&quot;libs&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="32 "></span>        <span class="s2">&quot;список установленных библиотек&quot;</span>
+<span class="linenos" data-linenos="33 "></span>    <span class="p">],</span>
+<span class="linenos" data-linenos="34 "></span>    <span class="nt">&quot;dirs&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="35 "></span>        <span class="s2">&quot;список установленных директорий&quot;</span>
+<span class="linenos" data-linenos="36 "></span>    <span class="p">]</span>
+<span class="linenos" data-linenos="37 "></span><span class="p">}</span>
+</code></pre></div>
+<p>Все значения, указанные знаком <code>*</code> являются обязательными. Остальные вы используете по мере необходимости.</p>
+<p>Подробное объяснение параметров в таблице ниже.</p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Объяснение</th>
+<th>Приоритет</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>Имя пакета. Важно не путать имена пакета и порта. Например, имя пакета - <code>vim</code>, а имя порта - <code>/base/editors/vim</code></td>
+<td>Необходимый</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>Версия пакета</td>
+<td>Необходимый</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>Описание пакета (для чего он предназначен). Только на английском или русском языках.</td>
+<td>Необходимый</td>
+</tr>
+<tr>
+<td><code>maintainer</code></td>
+<td>Имя/псевдоним, а так же почта сопровождающего порта</td>
+<td>Необходимый</td>
+</tr>
+<tr>
+<td><code>priority</code></td>
+<td>Приоритет порта - пользовательский или системный</td>
+<td>Необходимый</td>
+</tr>
+<tr>
+<td><code>release</code></td>
+<td>Порт подготовлен только для определённого релиза дистрибутива CalmiraLinux, на других работа будет некорректной. Номер релиза системы берётся из параметра <code>DISTRIB_RELEASE</code> файла <code>/etc/lsb-release</code>.</td>
+<td>Опциональный</td>
+</tr>
+<tr>
+<td><code>deps</code></td>
+<td>В этой секции описываются зависимости порта (см. пункт "Зависимости поля <code>deps</code>")</td>
+<td>Опциональный</td>
+</tr>
+<tr>
+<td><code>bins</code></td>
+<td>Установленные программы в <code>/{bin,sbin}</code> и <code>/usr/{bin,sbin}</code></td>
+<td>Опциональный</td>
+</tr>
+<tr>
+<td><code>libs</code></td>
+<td>Установленные библиотеки</td>
+<td>Опциональный</td>
+</tr>
+<tr>
+<td><code>dirs</code></td>
+<td>Установленные директории</td>
+<td>Опциональный</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Обратите внимание</p>
+<p>Если у параметра установлен необходимый приоритет, то этот параметр <strong>обязательно</strong> должен присутствовать в <code>config.json</code>. Опциональные параметры выбираются, если сопровождающий считает нужным, а так же по мере наличия нужной информации для заполнения значений этих параметров.</p>
+</div>
+<h3 id="deps">Зависимости поля <code>deps</code><a class="headerlink" href="#deps" title="Permanent link">⚓︎</a></h3>
+<p>Примерное содержимое поля <code>deps</code>:</p>
+<div class="highlight"><span class="filename">Фрагмент config.json: содержимое поля 'deps'</span><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="nt">&quot;deps&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos" data-linenos=" 2 "></span>    <span class="nt">&quot;required&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos=" 3 "></span>        <span class="s2">&quot;необходимые зависимости&quot;</span>
+<span class="linenos" data-linenos=" 4 "></span>    <span class="p">],</span>
+<span class="linenos" data-linenos=" 5 "></span>    <span class="nt">&quot;runtime&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos=" 6 "></span>        <span class="s2">&quot;необходимые зависимотси в рантайме&quot;</span>
+<span class="linenos" data-linenos=" 7 "></span>    <span class="p">],</span>
+<span class="linenos" data-linenos=" 8 "></span>    <span class="nt">&quot;optional&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos=" 9 "></span>        <span class="s2">&quot;опциональные зависимости&quot;</span>
+<span class="linenos" data-linenos="10 "></span>    <span class="p">],</span>
+<span class="linenos" data-linenos="11 "></span>    <span class="nt">&quot;recommend&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="12 "></span>        <span class="s2">&quot;рекомендуемые зависимости&quot;</span>
+<span class="linenos" data-linenos="13 "></span>    <span class="p">],</span>
+<span class="linenos" data-linenos="14 "></span>    <span class="nt">&quot;before&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="15 "></span>       <span class="s2">&quot;порт должен быть установлен перед этими зависимостями&quot;</span>
+<span class="linenos" data-linenos="16 "></span>    <span class="p">],</span>
+<span class="linenos" data-linenos="17 "></span>    <span class="nt">&quot;conflict&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos" data-linenos="18 "></span>        <span class="s2">&quot;конфликтующие с этим портом зависимости&quot;</span>
+<span class="linenos" data-linenos="19 "></span>    <span class="p">]</span>
+<span class="linenos" data-linenos="20 "></span><span class="p">},</span>
+</code></pre></div>
+<p><strong>Параметры:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Объяснение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>required</code></td>
+<td>Необходимые зависимости, без которых порт не может быть собран и установлен. Перед сборкой данного порта, соберите его необходимые зависимости из этого параметра.</td>
+</tr>
+<tr>
+<td><code>runtime</code></td>
+<td>Необходимые зависимости во время работы компонентов пакета</td>
+</tr>
+<tr>
+<td><code>optional</code></td>
+<td>Опциональные зависимости. Не обязательны к сборке и установке. Обычно расширяют функционал искомого порта.</td>
+</tr>
+<tr>
+<td><code>recommend</code></td>
+<td>Рекомендуемые зависимости. Так же не обязательны к сборке и установке, но без них пакет порта может работать нестабильно/некорректно, либо не будут доступны определённые функции и возможности</td>
+</tr>
+<tr>
+<td><code>before</code></td>
+<td>Необязательные зависимости. Тоже самое, что <code>optional</code> и <code>recommend</code>, но разница в том, что опциональные и рекомендуемые зависимости могут быть установлены после сборки искомого порта, а <code>before</code> - либо установлены <strong>до</strong> искомого порта, либо не установлены вообще.</td>
+</tr>
+<tr>
+<td><code>conflict</code></td>
+<td>Эти порты конфликтуют с искомым. Возможно они/искомый порт затирают файлы друг друга, либо вызывают всевозможные несовместимости и регрессии. Настоятельно советуется удалить те порты, которые установлены в системе и перечислены в этой секции во избежание ошибок</td>
+</tr>
+</tbody>
+</table>
                 
               
               

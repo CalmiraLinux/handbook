@@ -665,6 +665,19 @@
     Создание нужных файлов
   </a>
   
+    <nav class="md-nav" aria-label="Создание нужных файлов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Объяснение параметров
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -798,7 +811,7 @@
 <span class="linenos" data-linenos="36 "></span>    <span class="p">]</span>
 <span class="linenos" data-linenos="37 "></span><span class="p">}</span>
 </code></pre></div>
-<p>Все значения, указанные знаком <code>*</code> являются обязательными. Остальные вы используете по мере необходимости.</p>
+<p>Все значения, указанные знаком <code>*</code> являются обязательными. Остальные вы используете по мере необходимости. Дополнительную информацию читайте в предыдущей странице.</p>
 <p>Так же можете написать bash-скрипт <code>setup.sh</code> для автоматизированной настройки порта (как правило, для создания основных конфигов и директорий) после установки. Эта настройка производится для конкретного пользователя, от чьего имени был запущен скрипт.</p>
 <p>Если у пакета есть дополнительные настройки, которые трудно автоматизировать (нужно активное участие пользователя/администратора для выбора и изменения параметров, например), либо автоматизировать невозможно/не рекомендуется, то поместите рекомендации по настройке в файл <code>setup.html</code>. Формат такого файла должен быть примерно таким:</p>
 <div class="highlight"><span class="filename">setup.html</span><pre><span></span><code><span class="linenos" data-linenos=" 1 "></span><span class="cp">&lt;!doctype html&gt;</span>
@@ -832,6 +845,14 @@
 <span class="linenos" data-linenos="29 "></span>
 <span class="linenos" data-linenos="30 "></span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </code></pre></div>
+<h3 id="_5">Объяснение параметров<a class="headerlink" href="#_5" title="Permanent link">⚓︎</a></h3>
+<p>Для понимания содержимого страницы требуется знать HTML-теги на базовом уровне.</p>
+<ul>
+<li><code>&lt;title&gt;&lt;/title&gt;</code> - заголовок;</li>
+<li><code>&lt;h1&gt;-&lt;h3&gt;</code> - заголовки 1-3 уровней (рекомендуется использовать только их);</li>
+<li><code>&lt;p&gt;&lt;/p&gt;</code> - абзац;</li>
+<li><code>&lt;table&gt;</code> - таблица.</li>
+</ul>
 <h2 id="github">Отправка изменений на GitHub<a class="headerlink" href="#github" title="Permanent link">⚓︎</a></h2>
 <p>Если вы клонировали репозиторий себе на ПК, выполните:</p>
 <div class="highlight"><pre><span></span><code><span class="linenos" data-linenos="1 "></span><span class="c1"># Фиксирование изменений</span>
