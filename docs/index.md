@@ -5,9 +5,9 @@
 !!! danger "Внимание"
     Если дате принятия больше года, вероятно, есть более новая версия этого руководства. Посетите раздел документации, чтобы убедиться в этом.
 
-<img src="https://www.gnu.org/graphics/gfdl-logo-tiny.png" />
-
 !!! note "Лицензия"
+      <img src="https://www.gnu.org/graphics/gfdl-logo-tiny.png" />
+      
       Copyright (C) 2021 <a href="mailto:linuxoid85@gmail.com">Михаил Linuxoid85 Краснов</a>
 
       Предоставляется разрешение копировать, распространять и/или изменять

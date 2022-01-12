@@ -9,6 +9,7 @@
 ```bash
 git clone https://github.com/USERNAME/Ports
 cd Ports
+git init
 ```
 
 Замените `USERNAME` на имя пользователя GitHub.
@@ -21,28 +22,20 @@ cd Ports
 
 ```title="Древовидная структура системы портов"
 КАТЕГОРИЯ              <название категории брать из Введения в порты>
-├── makeport.sh        <скрипт для автоматизации создания порта>
 └── ИМЯ_ПАКЕТА         <указывается как аргумент скрипту makeport.sh>
-    ├── install        <обязательно>
-    ├── install_doc.sh <опционально>
-    ├── setup.html     <опционально>
-    ├── setup.sh       <опционально>
-    └── config.json    <обязательно>
+    ├── install               <обязательно>
+    ├── port_configuration.sh <опционально>
+    ├── setup.html            <опционально>
+    ├── setup.sh              <опционально>
+    ├── config.json           <обязательно>
+    └── resources.conf        <обязательно>
 ```
-
-
 
 Здесь приведена общая структура системы портов. КАТЕГОРИЯ и ИМЯ_ПАКЕТА - директории. КАТЕГОРИЯ - имя категории, в которую входит пакет с именем ИМЯ_ПАКЕТА.
 
-Файл `makeport.sh` нужен для автоматизации создания порта. Он создаёт директорию с именем порта, а так же файл install и откывает его в вашем текстовом редакторе, установленном по умолчанию. Наличие этого файла (`makeport.sh`) необязательно. Синтаксис:
+Файл `install` необходим. Он содержит инструкции по сборке ПО из исходного кода.
 
-```bash
-./makeport.sh $ИМЯ_ПАКЕТА
-```
-
-Файл `install` необходим. Он содержит инструкции по сборке ПО из исходного кода. Файл `install_doc.sh` опционален. Если у пакета есть дополнительная документация, которая не устанавливается по умолчанию, то в файле `install_doc.sh` содержатся инструкции по установке документации. Запускать его или нет - зависит от выбора пользователя. Он выбирает нужный ответ в диалоговом окне.
-
-Файл `config.json` содержит информацию о пакете. Она может быть добавлена в базу данных port-utils для удобного управления пакетом. Наличие этого файла ОБЯЗАТЕЛЬНО, так же как и файла `install`.
+Файл `config.json` содержит информацию о пакете. Она может быть добавлена в базу данных cport для удобного управления пакетом. Наличие этого файла ОБЯЗАТЕЛЬНО, так же как и файла `install`.
 
 `setup.html` содержит дополнительные инструкции о дальнейшей настройке пакета после установки. Описаны команды и примеры файлов. Открывается в любом браузере. Файл `setup.sh` предназначен для автоматизированной настройки порта после установки. Как правило, настройка производится только для того пользователя, от имени которого был запущен этот скрипт.
 
@@ -54,44 +47,23 @@ cd Ports
 Перейдите в одну из нужных директорий, выполните:
 
 ```bash
-./makeport.sh $PACKAGE_NAME
+mkdir -pv $PORTNAME
+cd $PORTNAME
 ```
 
-Замените `$PACKAGE_NAME` на имя порта. Скрипт `makeport.sh` создаёт нужную директорию и записывает в файл нужную информацию, которая должна содержаться в файле порта.
+Замените `$PORTNAME` на имя порта.
 
-Если вы не нашли этот скрипт, скопируйте его из любой другой директории.
+Вам необходимо создать файл `config.json` со следующим содержимым:
 
-Будет создан файл `install` в директории, имеющей имя порта, который вы хотите создать. Этот файл будет открыт для редактирования в вашем текстовом редакторе, установленном по умолчанию. Замените строки:
-
-```bash title="Фрагмент install"
-# Port created by Linuxoid85
-#
-# (C) 2021 Michail [Linuxoid85] Krasnov 
-```
-
-На строки с вашим именем.
-
-Строки:
-```bash title="Фрагмент install"
-wget 
-tar -xf 
-cd 
-```
-
-Предназначены для того, чтобы подставить в их конец нужную информацию. `wget` скачивает архив с исходным кодом, `tar -xf` распаковывает его, а `cd` переходит в распакованную директорию.
-
-Запишите в конец файла нужные инструкции для сборки. Доступны все команды bash.
-
-После того, как вы сорханите изменения и выйдите из окна текстового редактора, будет открыт файл `config.json` - в него запишите в него информацию о пакете. Примерное содержимое файла:
-
-```json title="config.json"
+```json
 {
     "name": "имя порта *",
     "version": "версия порта *",
     "description": "описание порта *",
+    "site": "ссылка на домашнюю страницу/репозиторий программы порта",
     "maintainer": "сопровождающий порт *",
     "priority": "приоритет порта *",
-    "release": "релиз Calmira, для которого предназначен порт",
+    "release": "релиз Calmira, для которого предназначен порт *",
     "deps": {
         "required": [
             "необходимые зависимости"
@@ -125,6 +97,116 @@ cd
 ```
 
 Все значения, указанные знаком `*` являются обязательными. Остальные вы используете по мере необходимости. Дополнительную информацию читайте в предыдущей странице.
+
+К примеру, этот файл для порта [`x11-wm/windowmaker`](https://github.com/CalmiraLinux/Ports/blob/testing/ports/x11-wm/windowmaker/config.json):
+
+```json title="Файл /usr/ports/x11-wm/windowmaker"
+{
+	"name": "Window Maker",
+	"version": "0.95.9",
+	"description": "Window Maker is an X11 window manager originally designed to provide integration support for the GNUstep Desktop Environment, although it can run stand alone",
+	"site": "https://www.windowmaker.org",
+	"priority": "user",
+	"maintainer": "Michail Linuxoid85 Krasnov <linuxoid85@gmail.com>",
+	"deps": {
+		"required": [
+			"xorg/*",
+			"general/libpng",
+			"general/libjpeg-turbo"
+		]
+	}
+}
+```
+
+Кроме того, вам необходим файл `resources.conf`, содержащий ссылку для скачивания архива с исходным кодом, а так же имя архива с исходным кодом. Этот файл предназначен для пакетного менеджера `cport`:
+
+```json
+{
+    "resources": {
+        "url": "ссылка для скачивания архива с исходным кодом",
+        "file": "скаченный архив, который нужно распаковать"
+    }
+}
+```
+
+К примеру, этот файл для [`x11-wm/windowmaker`](https://github.com/CalmiraLinux/Ports/blob/testing/ports/x11-wm/windowmaker/resources.conf):
+
+```json title="/usr/ports/x11-wm/windowmaker/resources.conf"
+{
+	"resources": {
+		"url": "https://github.com/window-maker/wmaker/releases/download/wmaker-0.95.9/WindowMaker-0.95.9.tar.gz",
+		"file": "WindowMaker-0.95.9.tar.gz"
+	}
+}
+```
+
+Самое важное - это файл с инструкциями по сборке. Его формат следующий:
+
+```bash
+#!/bin/bash
+set -Eeuo pipefail
+# В случае наличия файла 'port_configuration', раскомментируйте строку:
+#source /usr/ports/$PORTNAME/port_configuration.sh
+# Замените '$PORTNAME' на имя порта, например, base/editors/vim
+cd /usr/src/$DIR
+# Замените $DIR на директорию, в которую распаковался архив. Обычно
+# это имя скаченного порта, но без расширения
+
+./configure --prefix=/usr --disable-static
+make
+make install
+```
+
+Строка №2 прекращает выполнение сборочной инструкции `install` даже если одна из частей пайпа завершилась ошибкой.
+
+Строка №6 - здесь выполняется переход в распакованную директорию с исходным кодом порта. Архивы с исходным кодом скачиваются и распаковываются в директорию `/usr/src`.
+
+Если у сборочных инструкций есть изменяемые параметры, которые пользователи могут изменять без проблем, то в директории порта должен содержаться файл `port_configuration.sh`. Это так же bash-скрипт, содержащий определённые переменные, которые будут использоваться в файле `install`.
+
+Например, в данном файле может содержаться префикс, куда будет установлен порт:
+
+```bash title="Фрагмент файла port_configuration.sh"
+PREFIX="/opt/X11" # This is installation prefix
+```
+
+И тогда содержимое файла `install` будет таким:
+
+```bash title="Фрагмент файла install"
+...
+
+source /usr/ports/$PORTNAME/port_configuration.sh
+
+...
+
+./configure --prefix="$PREFIX" --disable-static
+
+...
+```
+
+Например, для порта [`x11-wm/wmaker`](https://github.com/CalmiraLinux/Ports/tree/testing/ports/x11-wm/windowmaker) эти файлы будут такими:
+
+```bash title="/usr/ports/x11-wm/windowmaker/port_configuration.sh"
+# Begin /usr/ports/x11-wm/windowmaker/port-configuration.sh
+
+PREFIX="/usr" # The installation prefix
+LANGS="en ru" # The supported languages (see './configure LINGUAS="list"' for getting more info)
+
+# End /usr/ports/x11-wm/windowmaker/port-configuration.sh
+```
+
+```bash title="/usr/ports/x11-wm/windowmaker/install"
+#!/bin/bash
+set -Eeuo pipefail
+cd /usr/src/WindowMaker-0.95.9
+
+source ./port-configuration.sh # This port settings
+# $PREFIX - the installation prefix
+# $LANGS  - the supported languages (see './configure LINGUAS="list"' for more info)
+
+./configure --prefix=$PREFIX --enable-usermenu LINGUAS="$LANGS"
+make
+make install
+```
 
 Так же можете написать bash-скрипт `setup.sh` для автоматизированной настройки порта (как правило, для создания основных конфигов и директорий) после установки. Эта настройка производится для конкретного пользователя, от чьего имени был запущен скрипт.
 
@@ -190,9 +272,3 @@ git push
 Если вы делали всё в Web, то отметьте изменения с помощью графического интерфейса GitHub.
 
 Создайте запрос на слияние (pull-request). Создание порта завершено!
-
-## Ports API
-
-:octicons-heart-fill-24: TODO :octicons-zap-24: Future
-
-В будущем планируется создать единый Ports API, позволяющий разработчикам более быстро создавать свои порты. Этот API позволит им без проблем вызывать всевозможные диалоги, работать с БД системы портов и пр.

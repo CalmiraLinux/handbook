@@ -102,6 +102,7 @@ nav:
     - Настройка окружения: setup/shell.md
     - Настройка часов: setup/clock.md
     - Настройка консоли: setup/console.md
+    - Настройка dircolors: setup/dircolors.md
     - Настройка inittab: setup/inittab.md
     - Установка дополнительных загрузочных скриптов: setup/bootscripts.md
   - Управление пакетами:
