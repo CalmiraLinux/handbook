@@ -1,0 +1,79 @@
+site_name: Calmira GNU/Linux(-libre) Handbook
+site_author: Михаил Краснов <linuxoid85@gmail.com>
+
+theme:
+  name: material
+  language: ru
+  features:
+    - content.code.annotate
+    - content.tabs.link
+    - navigation.expand
+    - navigation.indexes
+    - search.highlight
+    - search.share
+    - search.suggest
+    - navigation.top
+  palette:
+    - scheme: default
+      primary: black
+      accent: blue
+      toggle:
+        icon: material/eye-outline
+        name: Переключиться в тёмный режим
+    - scheme: slate
+      primary: black
+      accent: blue
+      toggle:
+        icon: material/eye
+        name: Переключиться в светлый режим
+  font:
+    text: 'Open Sans'
+    code: 'Droid Sans Mono'
+
+markdown_extensions:
+  - admonition
+  - abbr
+  - def_list
+  - md_in_html
+  - codehilite
+  - meta
+  - attr_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: ⚓︎
+  - markdown.extensions.tables
+  - pymdownx.arithmatex
+  - pymdownx.betterem
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.details
+  - pymdownx.magiclink:
+      repo_url_shortener: true
+      repo_url_shorthand: true
+      provider: "github"
+      user: "facelessuser"
+      repo: "pymdown-extensions"
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist
+  - pymdownx.highlight:
+      linenums: true
+      linenums_style: pymdownx-inline
+
+nav:
+    - Calmira GNU/Linux(-libre) Handbook: index.md
+    - Введение в руководство: intro.md
+    - Введение в дистрибутив:
+      - Введение в дистрибутив: chapter1/README.md
+      - Преимущества: chapter1/benefits.md
+      - Прежде, чем начать: chapter1/before-start.md
+    - Установка:
+      - Установка Calmira GNU/Linux-libre: chapter2/index.md
+      - Выбор подходящего источника для установки: chapter2/media.md
+      - Настройка сети: chapter2/net.md
+      - Подготовка дисков: chapter2/disks.md
