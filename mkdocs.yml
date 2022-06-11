@@ -77,3 +77,4 @@ nav:
       - Выбор подходящего источника для установки: chapter2/media.md
       - Настройка сети: chapter2/net.md
       - Подготовка дисков: chapter2/disks.md
+      - Сборка Calmira GNU/Linux-libre из исходного кода: chapter2/install-base.md
